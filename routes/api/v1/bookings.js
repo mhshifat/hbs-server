@@ -60,6 +60,7 @@ router.post("/", authNeeded, async (req, res) => {
     );
     return res.json({ success: true });
   } catch (err) {
+    console.log(err.response);
     res.status(400).json({
       errors: [{ title: "Random Error!", detail: "Something went wrong!" }]
     });

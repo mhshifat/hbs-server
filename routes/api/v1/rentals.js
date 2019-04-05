@@ -7,7 +7,7 @@ const { authNeeded } = require("../../../middlewares/middlewares");
 
 router.get("/", async (req, res) => {
   try {
-    const rentals = await Rental.find({});
+    const rentals = await Rental.find({}).populate("bookings");
     if (rentals) {
       res.status(200).json(rentals);
     }
